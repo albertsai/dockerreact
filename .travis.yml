@@ -1,0 +1,14 @@
+language: generic
+
+sudo: required
+
+services:
+        - docker
+
+before_install:
+        - docker build -t albertsai/dockerreact -f Dockerfile.dev .
+
+script:
+        - docker run -e CI=true albertsai/dockerreacttest npm run test
+
+
